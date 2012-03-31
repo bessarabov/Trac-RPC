@@ -109,7 +109,7 @@ sub error {
             );
         }
     } else {
-        if ($_[0] =~ /connect: Connection refused/) {
+        if ($_[0] =~ /Connection refused/) {
             TracExceptionConnectionRefused->throw( error =>
                 "Could not access '$self->{host}'\n"
                 . "Got error '$_[0]'\n"
