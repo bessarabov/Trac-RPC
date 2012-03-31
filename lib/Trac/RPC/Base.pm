@@ -15,15 +15,15 @@ use warnings;
 use Data::Dumper;
 use RPC::XML::Client;
 use Trac::RPC::Exception;
-binmode STDOUT, ":utf8"; 
+binmode STDOUT, ":utf8";
 
 =head1 GENERAL FUNCTIONS
 =cut
 
 =head2 new
- 
- * Get: 1) hash with connection information 
- * Return: 1) object 
+
+ * Get: 1) hash with connection information
+ * Return: 1) object
 
 Sub creates an object
 
@@ -45,7 +45,7 @@ sub new {
         fault_handler => sub {error($self, @_)},
     );
 
-    if ( $self->{realm} && $self->{user} && $self->{password} ) { 
+    if ( $self->{realm} && $self->{user} && $self->{password} ) {
         $self->{rxc}->credentials($self->{realm}, $self->{user}, $self->{password});
     }
 
@@ -53,12 +53,12 @@ sub new {
     return $self;
 }
 
-=head2 call 
- 
- * Get: 1) @ with params to send to trac's xml rpc interface
- * Return: 1) scalar with some data recived from trac 
+=head2 call
 
-Sending request to trac and returns the answer. 
+ * Get: 1) @ with params to send to trac's xml rpc interface
+ * Return: 1) scalar with some data recived from trac
+
+Sending request to trac and returns the answer.
 
     $self->call(
         'wiki.putPage',
@@ -78,7 +78,7 @@ sub call {
     return $res->value;
 }
 
-=head2 error 
+=head2 error
 
 Handler that checks for different types of erros and throws exceptions.
 
