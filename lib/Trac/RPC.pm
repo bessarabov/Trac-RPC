@@ -9,7 +9,7 @@ Trac::RPC - access to Trac via XML-RPC Plugin
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 DESCRIPTION
 
@@ -192,7 +192,7 @@ The source code for this module is hosted on GitHub http://github.com/bessarabov
 use strict;
 use warnings;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 use base qw(
     Trac::RPC::Wiki

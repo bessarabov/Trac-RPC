@@ -1,4 +1,10 @@
-Revision history for Trac::RPC 
+Revision history for Trac::RPC
 
 0.01    2011-03-27
         * First public release
+
+0.02    2012-07-22
+        * Correct matching connection errors
+        * Pod improvements
+        * Using croak insted of die
+        * Moving to ExtUtils::MakeMaker from Module::Install
