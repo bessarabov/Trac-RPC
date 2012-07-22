@@ -1,6 +1,9 @@
 NAME
     Trac::RPC - access to Trac via XML-RPC Plugin
 
+VERSION
+    Version 0.02
+
 DESCRIPTION
     Trac is a great project management and bug/issue tracking system.
     http://trac.edgewall.org/.
@@ -33,7 +36,7 @@ SYNOPSIS
             # If the trac works without authentication
             # you should use a bit different url:
             # host => "https://trac.example.com/test/rpc",
-                                
+
         };
 
         my $tr = Trac::RPC->new($params);
