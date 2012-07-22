@@ -17,10 +17,11 @@ use base qw(Trac::RPC::Base);
 =head1 GENERAL FUNCTIONS
 =cut
 
-=head2 get_page 
- 
- * Get: 1) scalar with page name
- * Return: 1) scalar with page content
+=head2 get_page
+
+B<Get:> 1) $self 2) scalar with page name
+
+B<Return:> 1) scalar with page content
 
 =cut
 
@@ -33,10 +34,11 @@ sub get_page {
     );
 }
 
-=head2 put_page 
- 
- * Get: 1) scalar with page name 2) scalar with page content
- * Return: -
+=head2 put_page
+
+B<Get:> 1) $self 2) scalar with page name 3) scalar with page content
+
+B<Return:> -
 
 =cut
 
@@ -53,10 +55,11 @@ sub put_page {
     return ''
 }
 
-=head2 get_all_pages 
- 
- * Get: -
- * Return: 1) ref to the array with list of all wiki pages
+=head2 get_all_pages
+
+B<Get:> 1) $self
+
+B<Return:> 1) ref to the array with list of all wiki pages
 
 =cut
 

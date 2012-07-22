@@ -17,10 +17,11 @@ use base qw(Trac::RPC::Base);
 =head1 GENERAL FUNCTIONS
 =cut
 
-=head2 list_methods 
- 
- * Get: -
- * Return: 1) ref to the array with list of all avaliable methods via XML::RPC
+=head2 list_methods
+
+B<Get:> 1) $self
+
+B<Return:> 1) ref to the array with list of all avaliable methods via XML::RPC
 
 =cut
 

@@ -23,13 +23,14 @@ my $_path;
 =head1 GENERAL FUNCTIONS
 =cut
 
-=head2 download_all_pages 
- 
- * Get: 1) scalar with path to the directory to store pages
- * Return: -
+=head2 download_all_pages
 
-Methods gets every wiki page from trac and save them as files
-in the specified directory.
+B<Get:> 1) $self 2) $path - scalar with path to the directory to store pages
+
+B<Return:> -
+
+Methods gets every wiki page from trac and save them as files in the specified
+directory.
 
 Method will die if the specified directory does not exist.
 
@@ -65,7 +66,7 @@ sub download_all_pages {
 
         my $WIKIFILE;
         open $WIKIFILE, ">", "$path/$page" or die "can't open file '$path/$page'";
-        binmode $WIKIFILE, ":utf8"; 
+        binmode $WIKIFILE, ":utf8";
         print $WIKIFILE $page_content;
         close $WIKIFILE;
     }
@@ -73,10 +74,11 @@ sub download_all_pages {
     return '';
 }
 
-=head2 upload_all_pages 
- 
- * Get: 1) scalar with path to the directory where pages are stored
- * Return: -
+=head2 upload_all_pages
+
+B<Get:> 1) $self 2) scalar with path to the directory where pages are stored
+
+B<Return:> -
 
 Method finds every file in the specified directory and saves content of that
 files as wiki pages. The method does not merge page changes it just rewrites
@@ -95,8 +97,15 @@ sub upload_all_pages {
 
 }
 
-# This is just an additional sub to be use in upload_all_pages() because of the
-# design of File::Find
+=begin comment _wanted_for_upload_all_pages
+
+This is just an additional sub to be use in upload_all_pages() because of the
+design of File::Find
+
+=end comment
+
+=cut
+
 sub _wanted_for_upload_all_pages {
     my $page = $File::Find::name;
 

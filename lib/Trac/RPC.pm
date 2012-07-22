@@ -7,6 +7,10 @@ package Trac::RPC;
 
 Trac::RPC - access to Trac via XML-RPC Plugin
 
+=head1 VERSION
+
+Version 0.01
+
 =head1 DESCRIPTION
 
 Trac is a great project management and bug/issue tracking system.
@@ -41,7 +45,7 @@ easy to add methods implementation. Plese fork this module on github.
         # If the trac works without authentication
         # you should use a bit different url:
         # host => "https://trac.example.com/test/rpc",
-                                
+
     };
 
     my $tr = Trac::RPC->new($params);
@@ -95,7 +99,7 @@ For now the module has very few API methods implemented. Here is the list:
     wiki.getPage
     wiki.putPage
 
-=head1 NOT IMPLEMENTED METHODS 
+=head1 NOT IMPLEMENTED METHODS
 
 And here is the list of all API methods that needed to be implementd:
 
@@ -179,7 +183,7 @@ And here is the list of all API methods that needed to be implementd:
 
 Ivan Bessarabov, C<< <ivan@bessarabov.ru> >>
 
-=head1 SOURCE CODE 
+=head1 SOURCE CODE
 
 The source code for this module is hosted on GitHub http://github.com/bessarabov/Trac-RPC
 
