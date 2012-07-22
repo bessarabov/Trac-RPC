@@ -15,6 +15,7 @@ use warnings;
 use base qw(Trac::RPC::Base);
 
 use File::Find;
+use Carp;
 
 # Global variables for user in File::Find sub _wanted_for_upload_all_pages
 my $_self;
@@ -32,7 +33,7 @@ B<Return:> -
 Methods gets every wiki page from trac and save them as files in the specified
 directory.
 
-Method will die if the specified directory does not exist.
+Method will croak if the specified directory does not exist.
 
 Method will create subdirectories if wiki page names contain symbol "/".
 So, if there are pages "login/sql", "login/description" method will make
@@ -45,7 +46,7 @@ files:
 But there is a problem with this mapping aproach. In trac it is possible to
 have pages "login", "login/sql", "login/description". But in file system
 it is not possible to have a directory and a file with the same name.
-Method will die in such a situation.
+Method will croak in such a situation.
 I don't know good solution for this problem, if you have any ideas,
 please write me.
 
@@ -54,7 +55,7 @@ please write me.
 sub download_all_pages {
     my ($self, $path) = @_;
 
-    die "No such directory '$path'" unless -d $path;
+    croak "No such directory '$path'" unless -d $path;
 
     my $pages = $self->get_all_pages;
     foreach my $page (@$pages) {
@@ -65,7 +66,7 @@ sub download_all_pages {
         }
 
         my $WIKIFILE;
-        open $WIKIFILE, ">", "$path/$page" or die "can't open file '$path/$page'";
+        open $WIKIFILE, ">", "$path/$page" or croak "can't open file '$path/$page'";
         binmode $WIKIFILE, ":utf8";
         print $WIKIFILE $page_content;
         close $WIKIFILE;
@@ -92,7 +93,7 @@ sub upload_all_pages {
     ($_self, $_path) = @_;
 
     find( { wanted => \&_wanted_for_upload_all_pages, no_chdir =>1 }, $_path);
-    die "No such directory '$_path'" unless -d $_path;
+    croak "No such directory '$_path'" unless -d $_path;
     return '';
 
 }
@@ -114,7 +115,7 @@ sub _wanted_for_upload_all_pages {
     $page =~ s{^$_path/}{};
     print "$page" . "\n";
     my $WIKIFILE;
-    open $WIKIFILE, "<", $File::Find::name or die "can't open file '$File::Find::name'";
+    open $WIKIFILE, "<", $File::Find::name or croak "can't open file '$File::Find::name'";
     my @lines = <$WIKIFILE>;
     my $page_content = join('', @lines);
     close $WIKIFILE;

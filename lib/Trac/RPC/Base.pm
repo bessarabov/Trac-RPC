@@ -15,6 +15,8 @@ use warnings;
 use Data::Dumper;
 use RPC::XML::Client;
 use Trac::RPC::Exception;
+use Carp;
+
 binmode STDOUT, ":utf8";
 
 =head1 GENERAL FUNCTIONS
@@ -128,7 +130,7 @@ sub error {
                 . "Got error '$_[0]'\n"
             );
         } else {
-            die "Got error: '$_[0]'\n";
+            croak "Got error: '$_[0]'\n";
         }
 
     }
