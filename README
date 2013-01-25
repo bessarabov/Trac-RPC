@@ -33,7 +33,7 @@ SYNOPSIS
             # If the trac works without authentication
             # you should use a bit different url:
             # host => "https://trac.example.com/test/rpc",
-                                
+
         };
 
         my $tr = Trac::RPC->new($params);
@@ -165,4 +165,3 @@ AUTHOR
 SOURCE CODE
     The source code for this module is hosted on GitHub
     http://github.com/bessarabov/Trac-RPC
-

@@ -35,7 +35,7 @@ my $server = RPC::XML::Server->new(host => 'localhost', port => $port);
 die "Failed to create server: $server, stopped" unless (ref $server);
 my $child = start_server($server);
 
-# TracExceptionUnknownMethod 
+# TracExceptionUnknownMethod
 # (there is xmlrpc server, but there is no needed method)
 {
     my $page;

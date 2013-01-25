@@ -18,7 +18,7 @@ sub find_port {
     '';
 }
 
-sub start_server {   
+sub start_server {
     my $S = shift;
 
     my $pid;
@@ -27,20 +27,20 @@ sub start_server {
         die "fork() error: $!, stopped";
     } elsif ($pid) {
         return $pid;
-    } else {   
+    } else {
         $S->server_loop(@_);
         exit; # When the parent stops this server, we want to stop this child
     }
-} 
+}
 
-sub stop_server {   
+sub stop_server {
     my $pid = shift;
 
     # Per RT 27778, use 'KILL' instead of 'INT' as the stop-server signal for
     # MSWin platforms:
     my $SIGNAL = ($^O eq "MSWin32") ? 'KILL' : 'INT';
     kill $SIGNAL, $pid;
-    sleep 2; # give the old sockets time to go away 
+    sleep 2; # give the old sockets time to go away
 }
 
 1;
