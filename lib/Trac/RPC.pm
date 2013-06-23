@@ -1,15 +1,9 @@
 package Trac::RPC;
 
+# ABSTRACT: access to Trac via XML-RPC Plugin
+
 =encoding UTF-8
 =cut
-
-=head1 NAME
-
-Trac::RPC - access to Trac via XML-RPC Plugin
-
-=head1 VERSION
-
-Version 0.02
 
 =head1 DESCRIPTION
 
@@ -179,10 +173,6 @@ And here is the list of all API methods that needed to be implementd:
     search.getSearchFilters
     search.performSearchend
 
-=head1 AUTHOR
-
-Ivan Bessarabov, C<< <ivan@bessarabov.ru> >>
-
 =head1 SOURCE CODE
 
 The source code for this module is hosted on GitHub http://github.com/bessarabov/Trac-RPC
@@ -191,8 +181,6 @@ The source code for this module is hosted on GitHub http://github.com/bessarabov
 
 use strict;
 use warnings;
-
-our $VERSION = 0.02;
 
 use base qw(
     Trac::RPC::Wiki
