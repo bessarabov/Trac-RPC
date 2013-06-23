@@ -8,3 +8,6 @@ Revision history for Trac::RPC
         * Pod improvements
         * Using croak insted of die
         * Moving to ExtUtils::MakeMaker from Module::Install
+
+0.03    2013-06-23
+        * Switched to Dist::Zilla
